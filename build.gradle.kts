@@ -14,5 +14,5 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
-    classpath("com.github.DrgnFireYellow:kite:master-SNAPSHOT")
+    implementation("com.github.DrgnFireYellow:kite:master-SNAPSHOT")
 }
