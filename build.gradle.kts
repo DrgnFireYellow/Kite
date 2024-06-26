@@ -18,14 +18,19 @@ dependencies {
 }
 
 publishing {
-     repositories {
+    publications {
+        create<MavenPublication>("default") {
+            from(components["java"])
+        }
+    }
+
+    repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/DrgnFireYellow/Kite") // Github Package
+            url = uri("https://maven.pkg.github.com/DrgnFireYellow/Kite")
             credentials {
-                 //Fetch these details from the properties file or from Environment variables
-                username = System.getenv("GPR_USER")
-                password = System.getenv("GPR_API_KEY")
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
             }
         }
     }
