@@ -24,8 +24,8 @@ publishing {
             url = uri("https://maven.pkg.github.com/DrgnFireYellow/Kite") // Github Package
             credentials {
                  //Fetch these details from the properties file or from Environment variables
-                username = githubProperties.get("gpr.usr") as String? ?: System.getenv("GPR_USER")
-                password = githubProperties.get("gpr.key") as String? ?: System.getenv("GPR_API_KEY")
+                username = System.getenv("GPR_USER")
+                password = System.getenv("GPR_API_KEY")
             }
         }
     }
