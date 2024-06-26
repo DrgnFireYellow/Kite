@@ -18,20 +18,15 @@ dependencies {
 }
 
 publishing {
-    repositories {
+     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/DrgnFireYellow/kite")
+            url = uri("https://maven.pkg.github.com/DrgnFireYellow/Kite") // Github Package
             credentials {
-                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+                 //Fetch these details from the properties file or from Environment variables
+                username = githubProperties.get("gpr.usr") as String? ?: System.getenv("GPR_USER")
+                password = githubProperties.get("gpr.key") as String? ?: System.getenv("GPR_API_KEY")
             }
-            artifactId = "kite"
-        }
-    }
-    publications {
-        register<MavenPublication>("gpr") {
-            from(components["java"])
         }
     }
 }
