@@ -14,7 +14,7 @@ public class Display {
         Transformation transformation = display.getTransformation();
         transformation.getTranslation().set(translationX, translationY, translationZ);
         transformation.getScale().set(scaleX, scaleY, scaleZ);
-        transformation.getRightRotation().set(rotationX, rotationY, rotationZ, 1);
+//        transformation.getRightRotation().set(rotationX, rotationY, rotationZ, 1);
         display.setTransformation(transformation);
         return display;
     }
