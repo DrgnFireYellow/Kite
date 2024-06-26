@@ -26,7 +26,7 @@ publishing {
                 username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
                 password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
             }
-            artifactId("kite")
+            artifactId = "kite"
         }
     }
     publications {
