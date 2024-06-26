@@ -5,7 +5,8 @@ plugins {
 
 group = "com.drgnfireyellow"
 version = "1.0-SNAPSHOT"
-artifactId = "kite"
+
+project.extra.set("artifactId", "kite")
 
 repositories {
     mavenCentral()
