@@ -3,27 +3,32 @@ plugins {
     id("maven-publish")
 }
 
-group = "com.github.DrgnFireYellow"
+group = "com.drgnfireyellow"
 version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/")
-    maven("https://jitpack.io")
 }
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
-    implementation("com.github.DrgnFireYellow:kite:master-SNAPSHOT")
 }
 
 publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/DrgnFireYellow/kite")
+            credentials {
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+            }
+        }
+    }
     publications {
-        // Creates a Maven publication called "release".
-        register("release", MavenPublication::class) {
-            groupId = "com.drgnfireyellow"
-            artifactId = "kite"
-            version = "1.0.0"
+        register<MavenPublication>("gpr") {
+            from(components["java"])
         }
     }
 }
