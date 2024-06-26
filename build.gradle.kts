@@ -1,8 +1,9 @@
 plugins {
     id("java")
+    id("maven")
 }
 
-group = "com.drgnfireyellow"
+group = "com.github.DrgnFireYellow"
 version = "1.0-SNAPSHOT"
 
 repositories {
