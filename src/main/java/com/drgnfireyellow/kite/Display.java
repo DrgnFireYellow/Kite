@@ -8,7 +8,7 @@ import org.bukkit.util.Transformation;
 import org.jetbrains.annotations.NotNull;
 
 public class Display {
-    public BlockDisplay createBlockDisplay(@NotNull Material type, @NotNull Location position, double translationX, double translationY, double translationZ, double scaleX, double scaleY, double scaleZ, float rotationX, float rotationY, float rotationZ) {
+    public static BlockDisplay createBlockDisplay(@NotNull Material type, @NotNull Location position, double translationX, double translationY, double translationZ, double scaleX, double scaleY, double scaleZ, float rotationX, float rotationY, float rotationZ) {
         BlockDisplay display = (BlockDisplay) position.getWorld().spawnEntity(position, EntityType.BLOCK_DISPLAY);
         display.setBlock(type.createBlockData());
         Transformation transformation = display.getTransformation();
